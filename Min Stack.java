@@ -25,7 +25,7 @@ Constraints:
 1 ≤ N ≤ 104 */
 
 /*Complete the function(s) below*/
-class GfG{
+/* class GfG{
     Stack<Integer> stackSupporter = new Stack<>();
     int count = 0;
 	public void push(int a,Stack<Integer> s)
@@ -58,6 +58,54 @@ class GfG{
 	}
 	public boolean isEmpty(Stack<Integer>s)
         {
+        if(s.isEmpty())
+        return true;
+        else
+        return false;
+	}
+} */
+
+class GfG{
+    int min = -1;
+    int count = 0;
+	public void push(int a,Stack<Integer> s)
+	{
+	    count++;
+	    if(s.isEmpty()) {
+	        min = a;
+	        s.push(a);
+	    }
+	    else if(a < min) {
+	        s.push(2*a - min);
+	        min = a;
+	    }
+	    else
+	        s.push(a);
+	}
+	public int pop(Stack<Integer> s)
+    {
+        if(s.isEmpty())
+            return -1;
+        count--;
+        if(s.peek() < min) {
+            min = 2*min - s.peek();
+            return s.pop();
+        }
+        else
+            return s.pop();
+	}
+	public int min(Stack<Integer> s)
+    {
+        return min;
+	}
+	public boolean isFull(Stack<Integer>s, int n)
+    {
+        if(n == count)
+            return true;
+        return false;
+	}
+	public boolean isEmpty(Stack<Integer>s)
+    {
         if(s.isEmpty())
         return true;
         else
