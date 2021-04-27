@@ -50,3 +50,54 @@ public class Main {
         System.out.println(stack[top] + " is the top element.");
     }
 }
+
+//Second attempt
+
+/* 
+public class Main {
+	public static void main(String[] args) {
+		Stack s = new Stack();
+		s.push(10);
+		s.push(20);
+		//s.pop();
+		//s.pop();
+		System.out.println(s);
+		System.out.println(s.peek());
+	}
+}
+
+import java.util.Arrays;
+
+public class Stack {
+	public int[] arr = new int[100];
+	int size = 0;
+	
+	public void push(int x) {
+		if(size == arr.length)
+			throw new StackOverflowError();
+		arr[size++] = x;
+	}
+	
+	public int pop() {
+		if(isEmpty(arr))
+			throw new IllegalStateException();
+		return arr[--size];
+	}
+	
+	public int peek() {
+		if(isEmpty(arr))
+			throw new IllegalStateException();
+		else
+			return arr[size - 1];
+	}
+	
+	public boolean isEmpty(int[] arr) {
+		return size == 0;
+	}
+	
+	@Override
+	public String toString() {
+		return Arrays.toString(Arrays.copyOfRange(arr, 0, size));
+	}
+}
+*/
