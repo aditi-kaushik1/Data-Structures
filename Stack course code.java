@@ -1,4 +1,4 @@
-package com.codewithmosh;
+package com.code;
 
 import java.util.*;
 
