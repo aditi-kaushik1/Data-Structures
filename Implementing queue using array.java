@@ -1,3 +1,4 @@
+//Solution 1
 public class Main
 {
   int front;
@@ -85,4 +86,82 @@ public class Main
     else
         return queue[rear];
   }
+}
+
+//--------------------------------------------------------------------------------------------
+
+//Practice:
+
+package com.codewithaditi;
+
+import java.util.Arrays;
+
+public class ArrayQueue {
+	int front = 0;
+	int rear = 0;
+	int count = 0;
+	int[] arr;
+
+	public ArrayQueue(int capacity) {
+		arr = new int[capacity];
+	}
+
+	public boolean isFull() {
+		return count == arr.length;
+	}
+
+	public boolean isEmpty() {
+		return count == 0;
+	}
+
+	public void enqueue(int x) {
+		if (isFull())
+			throw new IllegalStateException();
+		arr[rear] = x;
+		rear = (rear + 1) % arr.length;
+		count++;
+	}
+
+	public int dequeue() {
+		if (isEmpty())
+			throw new IllegalStateException();
+		int x = arr[front];
+		arr[front] = 0;
+		front = (front + 1) % arr.length;
+		count--;
+		return x;
+	}
+
+	public int peek() {
+		if (isEmpty())
+			throw new IllegalStateException();
+		return arr[front];
+	}
+
+	@Override
+	public String toString() {
+		return Arrays.toString(arr);
+	}
+}
+
+//---------------------------------------------------------------------------------------
+
+package com.codewithaditi;
+
+public class Main {
+	public static void main(String[] args) {
+	ArrayQueue q = new ArrayQueue(5);
+	q.enqueue(10);
+	q.enqueue(20);
+	q.enqueue(30);
+	q.dequeue();
+	q.dequeue();
+	q.enqueue(40);
+	q.enqueue(50);
+	q.enqueue(60);
+	q.enqueue(70);
+	q.dequeue();
+	q.enqueue(80);
+	System.out.println(q);
+	}
 }
