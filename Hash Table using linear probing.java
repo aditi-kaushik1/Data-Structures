@@ -20,6 +20,7 @@ public class HashTable {
 			if(keys[index] == null) {
 				keys[index] = key;
 				values[index] = value;
+				currentLen++;
 			}
 			
 			if(keys[index] == key) {
