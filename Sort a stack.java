@@ -19,28 +19,48 @@ Expected Auixilliary Space : O(N) recursive.
 Constraints:
 1<=N<=100 */
 
+//Soltuion 1
+//Recursive approach
+// class GfG{
+// 	public Stack<Integer> sort(Stack<Integer> s)
+// 	{
+// 		sortStack(s);
+// 		return s;
+// 	}
+	
+// 	private void sortStack(Stack<Integer> s) {
+// 	    if(s.size() == 1)
+// 	        return;
+// 	    int top = s.pop();
+// 	    sortStack(s);
+// 	    order(s, top);
+// 	}
+	
+// 	private void order(Stack<Integer> s, int top) {
+// 	    if(s.isEmpty() || s.peek() <= top) {
+// 	        s.push(top);
+// 	        return;
+// 	    }
+// 	   int x = s.pop();
+// 	   order(s, top);
+// 	   s.push(x);
+// 	}
+// }
+
+//Solution 2
+//Sort it using a temporary stack
+//O(n^2) time complexity and O(n) space complexity
+
 class GfG{
 	public Stack<Integer> sort(Stack<Integer> s)
 	{
-		sortStack(s);
-		return s;
-	}
-	
-	private void sortStack(Stack<Integer> s) {
-	    if(s.size() == 1)
-	        return;
-	    int top = s.pop();
-	    sortStack(s);
-	    order(s, top);
-	}
-	
-	private void order(Stack<Integer> s, int top) {
-	    if(s.isEmpty() || s.peek() <= top) {
-	        s.push(top);
-	        return;
-	    }
-	   int x = s.pop();
-	   order(s, top);
-	   s.push(x);
+		Stack<Integer> helper = new Stack<>();
+		while(!s.isEmpty()) {
+		    int x = s.pop();
+		    while(!helper.isEmpty() && helper.peek() > x)
+		        s.push(helper.pop());
+		    helper.push(x);
+		}
+		return helper;
 	}
 }
