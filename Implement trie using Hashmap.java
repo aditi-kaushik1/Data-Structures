@@ -42,6 +42,18 @@ public class Trie {
         }
         current.isEndOfWord = true;
     }
+    
+     public boolean containsWord(String word) {
+        if(word == null)
+            return false;
+        Node current = root;
+        for(char ch : word.toCharArray()) {
+            if(current.getChild(ch) == null)
+                return false;
+            current = current.getChild(ch);
+        }
+        return current.isEndOfWord;
+    }
 }
 
 
@@ -55,5 +67,6 @@ public class Main
         trie.insert("cat");
         trie.insert("can");
         System.out.println("Done");
+        System.out.println(trie.containsWord("can");
     }
 }
