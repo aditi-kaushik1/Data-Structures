@@ -28,7 +28,7 @@ public class Trie {
         }
 
         public Node getChild(char ch) {
-            children.get(ch);
+            return children.get(ch);
         }
     }
     public Node root = new Node(' ');
