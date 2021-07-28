@@ -49,3 +49,26 @@ public class Solution {
     //         return t[n][B] = solveHelper(A,B,n-1,t);
     }
 }
+
+// class Solution{
+
+
+//     static boolean isSubsetSum(int N, int arr[], int sum){
+//         boolean[][] t = new boolean[N + 1][sum + 1];
+//         return helper(N, arr, sum, t);
+//     }
+    
+//     public static boolean helper(int n, int[] arr, int sum, boolean[][] t) {
+//         if(n == 0 && sum != 0)
+//             return false;
+//         if(sum == 0)
+//             return true;
+//         if(t[n][sum] != false)
+//             return t[n][sum];
+            
+//         if(arr[n - 1] <= sum)
+//             return t[n][sum] = helper(n - 1, arr, sum - arr[n - 1], t) | helper(n - 1, arr, sum, t);
+//         else
+//             return t[n][sum] = helper(n - 1, arr, sum, t);
+//     }
+// }
