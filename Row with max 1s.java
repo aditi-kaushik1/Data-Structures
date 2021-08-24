@@ -67,3 +67,20 @@ class Solution {
         return res;
     }
 }
+
+//Solution 2
+//Time complexity : O(n + m)
+//Using the staircase method. Going from top right to bottom left corner in (m + n) steps.
+//class Solution {
+//     int rowWithMax1s(int arr[][], int n, int m) {
+//         int j = m - 1;
+//         int maxNumber = -1;
+//         for(int i = 0; i < n; i++) {
+//             while(j >= 0 && arr[i][j] == 1) {
+//                 j = j - 1;
+//                 maxNumber = i;
+//             }   
+//         }
+//         return maxNumber;
+//     }
+// }
